@@ -1,0 +1,6 @@
+.toolbar {
+  text-align: center;
+  flex: 25%;
+  max-width: 25%;
+  margin: 0 auto;
+}

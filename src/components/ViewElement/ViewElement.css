@@ -1,0 +1,8 @@
+.view__element{
+  width: 50%;
+  cursor: pointer;
+}
+
+.view__element:hover{
+  background: #F2F2F2;
+}
