@@ -1,29 +1,30 @@
 import React, { Component } from 'react';
+import {HashRouter, Link} from "react-router-dom";
 
 import './Toolbar.css';
-
-
 
 class Toolbar extends Component {
     render() {
         return (
         <nav className="toolbar">
             <ul className="nav flex-column">
+            <HashRouter>
                 <li className="nav-item">
-                    <a className="nav-link active" href="/edit">
+                    <Link to="/edit">
                         Редактирование
-                    </a>
+                    </Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/view">
+                    <Link className="nav-link" to="/view">
                         Просмотр
-                    </a>
+                    </Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/about">
+                    <Link className="nav-link" to={"/about"}>
                         О программе
-                    </a>
+                    </Link>
                 </li>
+                </HashRouter>
             </ul>
         </nav>
         );

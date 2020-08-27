@@ -12,7 +12,6 @@ class Login extends Component {
     enter(){
         console.log("check");
         localStorage.setItem('isAuth', true);
-        this.props.history.push('/posts/');
 
     }
 
@@ -39,7 +38,8 @@ class Login extends Component {
                     </div>
                     <button 
                         type="submit" 
-                        className="btn btn-primary" 
+                        className="btn btn-primary"
+                        id="btn-click"
                         onClick={this.enter}>Войти</button>
                 </form>
                 <div className="progress">

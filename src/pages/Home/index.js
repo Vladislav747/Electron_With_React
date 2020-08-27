@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import {Workarea, Toolbar} from '../../components';
+import {Editing, Toolbar} from '../../components';
 import './Home.css';
 
 
@@ -8,10 +8,10 @@ import './Home.css';
 class Home extends Component {
     render() {
         return (
-        <main className="main">
+        <div className="main">
             <Toolbar />
-            <Workarea />
-        </main>
+            <Editing />
+        </div>
         );
     }
 }

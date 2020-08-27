@@ -1,8 +1,6 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Redirect, Switch} from "react-router-dom";
-import {Login, About, Toolbar, View, Editing} from './components';
-import {Home} from './pages';
-import {Default} from './layouts';
+import {HashRouter as Router, Route, Redirect, Switch} from "react-router-dom";
+import {Login, About, Toolbar, View, Editing, Header} from './components';
 
 import logo from './logo.svg';
 import './App.css';
@@ -10,7 +8,7 @@ import './App.css';
 const isAuth = () => {
     var authLocal = localStorage.getItem('isAuth');
     if(authLocal !== 'undefined'){
-        return authLocal;
+        return true;
     }else{
         return false;
     }
@@ -24,10 +22,9 @@ class App extends React.Component {
     render() {
         return (
         <div className="App">
-            <div className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-            </div>
+            <Header />
             <div className="container-fluid">
+            <Toolbar/>
                 <Router>
                     <Switch>
                         <Route
@@ -38,17 +35,17 @@ class App extends React.Component {
                         <Route
                             exact
                             path={["/","/view"]}
-                            component={() => (isAuth() ? [<Toolbar/>,<View />] : <Redirect to="/signin" />)}
+                            component={() => (isAuth() ? <View /> : <Redirect to="/signin" />)}
                         />
                         <Route
                             exact
                             path={"/edit/:id"}
-                            component={() => (isAuth() ? [<Toolbar/>,<Editing />] : <Redirect to="/signin" />)}
+                            component={Editing}
                         />
                         <Route
                             exact
                             path={"/about"}
-                            component={() => (isAuth() ? [<Toolbar/>,<About />] : <Redirect to="/signin" />)}
+                            component={() => (isAuth() ? <About /> : <Redirect to="/signin" />)}
                         />
                     </Switch>
                 </Router>

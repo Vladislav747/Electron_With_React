@@ -3,7 +3,7 @@ const path = require('path');
 const url = require ('url');
 
 const port = process.env.PORT || 8080;
-//console.log(path.join(__dirname, 'preload.js'));
+
 let mainWindow = '';
 function createWindow () {
   // Create the browser window.

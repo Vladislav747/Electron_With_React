@@ -1,3 +1,7 @@
+.card-body{
+  padding: 0.75rem;
+}
+
 .view__element{
   width: 50%;
   cursor: pointer;

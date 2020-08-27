@@ -3,20 +3,33 @@ import React, { Component } from 'react';
 import './Editing.css';
 var loginUsers = require ('../../data/loginUsers.js');
 
-
+import addIcon from '../../assets/icons/add.svg';
+import saveIcon from '../../assets/icons/save.svg';
+import deleteIcon from '../../assets/icons/delete.svg';
 
 class Editing extends Component {
-    
-    state = {
-        loginUsers: loginUsers[0],
-        login: loginUsers.login,
-        password: loginUsers.password,
-    };
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            loginUsers: loginUsers[0],
+            login: loginUsers.login,
+            password: loginUsers.password,
+        };
+    }
 
     componentDidMount() {
-        const postID = this.props.match;
-        console.log(postID, "url");
+       this.renderRedirect();
+       
     }
+
+    renderRedirect = () => {
+        TODO: //Если не передан параметр перекидывать обратно на главную страницу
+        if (this.props.match.params) {
+            const postID = this.props.match.params;
+            console.log(postID, "url"); 
+        }
+      };
 
     handleChange(){
 
@@ -30,24 +43,36 @@ class Editing extends Component {
              
                 <form>
                     <div className="form-group">
-                        <label htmlFor="exampleInputEmail1">Логин</label>
+                        <label htmlFor="inputLogin">Логин</label>
                         <input 
                             type="text" 
                             className="form-control" 
-                            id="exampleInputEmail1"
+                            id="inputLogin"
                             aria-describedby="emailHelp" 
                             value={this.state.loginUsers.login}
                             onChange={this.handleChange} />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="exampleInputPassword1">Пароль</label>
+                        <label htmlFor="inputPassword">Пароль</label>
                         <input 
                             type="text" 
                             className="form-control" 
-                            id="exampleInputPassword1" 
+                            id="inputPassword" 
                             value={this.state.loginUsers.password}/>
                     </div>
-                    <button type="submit" className="btn btn-primary">Редактировать</button>
+                    <div className="extra-attributes"></div>
+                    <div className="form-controls">
+                        <button type="submit" className="btn btn-primary icon-control add-action">
+                            <img src={addIcon} width="30px" alt="Добавить"/>
+                        </button>
+                        <button type="submit" className="btn btn-primary icon-control save-action">
+                            <img src={saveIcon} width="30px" alt="Сохранить"/>
+                        </button>
+                        <button type="submit" className="btn btn-primary icon-control delete-action">
+                            <img src={deleteIcon} width="30px" alt="Удалить"/>
+                        </button>
+                    </div>
+                   
                 </form>
            </div>
         </div>
